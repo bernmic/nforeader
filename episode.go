@@ -13,7 +13,7 @@ type Episode struct {
 	Ratings   struct {
 		Rating []Rating `xml:"rating,omitempty"`
 	} `xml:"ratings"`
-	UserRating     int64      `xml:"userrating,omitempty"`
+	UserRating     float64    `xml:"userrating,omitempty"`
 	Top250         int64      `xml:"top250,omitempty"`
 	Season         int64      `xml:"season,omitempty"`
 	Episode        int64      `xml:"episode,omitempty"`
@@ -27,7 +27,7 @@ type Episode struct {
 	MPAA           string     `xml:"mpaa,omitempty"`
 	Playcount      int64      `xml:"playcount,omitempty"`
 	Lastplayed     string     `xml:"lastplayed,omitempty"`
-	Id             int64      `xml:"id,omitempty"`
+	Id             string     `xml:"id,omitempty"`
 	Uniqueid       []UniqueId `xml:"uniqueid,omitempty"`
 	Genre          []string   `xml:"genre,omitempty"`
 	Credits        string     `xml:"credits,omitempty"`

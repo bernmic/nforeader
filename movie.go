@@ -14,7 +14,7 @@ type Movie struct {
 	Ratings       struct {
 		Rating []Rating `xml:"rating,omitempty"`
 	} `xml:"ratings"`
-	UserRating int64      `xml:"userrating,omitempty"`
+	UserRating float64    `xml:"userrating,omitempty"`
 	Top250     int64      `xml:"top250,omitempty"`
 	Outline    string     `xml:"outline,omitempty"`
 	Plot       string     `xml:"plot,omitempty"`
@@ -25,7 +25,7 @@ type Movie struct {
 	MPAA       string     `xml:"mpaa,omitempty"`
 	Playcount  int64      `xml:"playcount,omitempty"`
 	Lastplayed string     `xml:"lastplayed,omitempty"`
-	Id         int64      `xml:"id,omitempty"`
+	Id         string     `xml:"id,omitempty"`
 	Uniqueid   []UniqueId `xml:"uniqueid,omitempty"`
 	Genre      []string   `xml:"genre,omitempty"`
 	Tag        []string   `xml:"tag,omitempty"`
