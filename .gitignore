@@ -1,0 +1,6 @@
+*.iml
+*.log
+*.exe
+.mvn/
+.idea/
+*.tar
