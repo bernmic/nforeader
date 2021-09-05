@@ -85,6 +85,7 @@ func main() {
 
 func readMovieNfo(filename string) (*nfoparser.Movie, error) {
 	f, err := os.Open(filename)
+	defer f.Close()
 	if err != nil {
 		fmt.Printf("Error opening %s: %v\n", filename, err)
 		return nil, err
@@ -118,6 +119,7 @@ func readAllMovies(dirname string) ([]*nfoparser.Movie, error) {
 
 func readTVShowNfo(filename string) (*nfoparser.TVShow, error) {
 	f, err := os.Open(filename)
+	defer f.Close()
 	if err != nil {
 		fmt.Printf("Error opening %s: %v\n", filename, err)
 		return nil, err
@@ -151,6 +153,7 @@ func readAllTVShows(dirname string) ([]*nfoparser.TVShow, error) {
 
 func readEpisodeNfo(filename string) (*nfoparser.Episode, error) {
 	f, err := os.Open(filename)
+	defer f.Close()
 	if err != nil {
 		fmt.Printf("Error opening %s: %v\n", filename, err)
 		return nil, err
