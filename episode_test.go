@@ -28,7 +28,7 @@ func TestEpisodeMarshal(t *testing.T) {
 		MPAA:           "12",
 		Playcount:      0,
 		Lastplayed:     "",
-		Id:             1,
+		Id:             "1",
 		Credits:        "Credits",
 		Director:       "Director",
 		Premiered:      "2021-01-01",
@@ -66,12 +66,12 @@ func TestEpisodeMarshal(t *testing.T) {
 	episode.Thumb = append(episode.Thumb, thumb1, thumb1)
 
 	episode.Uniqueid = append(episode.Uniqueid, UniqueId{
-		Type:    "imdb",
-		Id:      "tt123",
+		Type: "imdb",
+		Id:   "tt123",
 	})
 	episode.Uniqueid = append(episode.Uniqueid, UniqueId{
-		Type:    "tmdb",
-		Id:      "tt321",
+		Type: "tmdb",
+		Id:   "tt321",
 	})
 	episode.Genre = append(episode.Genre, "Comedy", "Thriller")
 

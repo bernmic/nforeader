@@ -60,14 +60,14 @@ func TestMovieMarshal(t *testing.T) {
 	movie.MPAA = "16"
 	movie.Playcount = 1
 	movie.Lastplayed = ""
-	movie.Id = 7
+	movie.Id = "7"
 	movie.Uniqueid = append(movie.Uniqueid, UniqueId{
-		Type:    "imdb",
-		Id:      "tt123",
+		Type: "imdb",
+		Id:   "tt123",
 	})
 	movie.Uniqueid = append(movie.Uniqueid, UniqueId{
-		Type:    "tmdb",
-		Id:      "tt321",
+		Type: "tmdb",
+		Id:   "tt321",
 	})
 	movie.Genre = append(movie.Genre, "Comedy", "Thriller")
 
