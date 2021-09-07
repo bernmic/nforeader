@@ -73,12 +73,12 @@ func TestTVShowMarshal(t *testing.T) {
 	tvshow.Fanart = &fanart
 
 	tvshow.Uniqueid = append(tvshow.Uniqueid, UniqueId{
-		Type:    "imdb",
-		Id:      "tt123",
+		Type: "imdb",
+		Id:   "tt123",
 	})
 	tvshow.Uniqueid = append(tvshow.Uniqueid, UniqueId{
-		Type:    "tmdb",
-		Id:      "tt321",
+		Type: "tmdb",
+		Id:   "tt321",
 	})
 	tvshow.Genre = append(tvshow.Genre, "Comedy", "Thriller")
 
@@ -135,4 +135,24 @@ func TestTVShowNfoReader(t *testing.T) {
 		t.Fail()
 	}
 	t.Logf("Title: %s\n", m.Title)
+
+	// test if not file is not readable
+	f, err = os.OpenFile("x.out", os.O_CREATE|os.O_WRONLY, 0644)
+	defer os.Remove("x.out")
+	defer f.Close()
+	m, err = ReadTVShowNfo(f)
+	if err == nil {
+		t.Error("Accepted nil as reader")
+		t.Fail()
+	}
+	// test with wrong file format
+	f, err = os.Open(episodeNfoFile)
+	if err != nil {
+		t.Fatalf("Could not open file '%s': %v\n", episodeNfoFile, err)
+	}
+	m, err = ReadTVShowNfo(f)
+	if err == nil {
+		t.Error("Accepted episode as tvshow", err)
+		t.Fail()
+	}
 }

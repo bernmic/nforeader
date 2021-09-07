@@ -137,4 +137,24 @@ func TestEpisodeNfoReader(t *testing.T) {
 		t.Fail()
 	}
 	t.Logf("Title: %s\n", m.Title)
+
+	// test if not file is not readable
+	f, err = os.OpenFile("x.out", os.O_CREATE|os.O_WRONLY, 0644)
+	defer os.Remove("x.out")
+	defer f.Close()
+	m, err = ReadEpisodeNfo(f)
+	if err == nil {
+		t.Error("Accepted nil as reader")
+		t.Fail()
+	}
+	// test with wrong file format
+	f, err = os.Open(movieNfoFile)
+	if err != nil {
+		t.Fatalf("Could not open file '%s': %v\n", movieNfoFile, err)
+	}
+	m, err = ReadEpisodeNfo(f)
+	if err == nil {
+		t.Error("Accepted movie as episode", err)
+		t.Fail()
+	}
 }

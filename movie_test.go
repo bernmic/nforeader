@@ -125,7 +125,7 @@ func TestMovieUnmarshal(t *testing.T) {
 func TestMovieNfoReader(t *testing.T) {
 	f, err := os.Open(movieNfoFile)
 	if err != nil {
-		t.Fatalf("Could not read file '%s': %v\n", movieNfoFile, err)
+		t.Fatalf("Could not open file '%s': %v\n", movieNfoFile, err)
 	}
 	m, err := ReadMovieNfo(f)
 	if err != nil {
@@ -133,4 +133,24 @@ func TestMovieNfoReader(t *testing.T) {
 		t.Fail()
 	}
 	t.Logf("Title: %s\n", m.Title)
+
+	// test if not file is not readable
+	f, err = os.OpenFile("x.out", os.O_CREATE|os.O_WRONLY, 0644)
+	defer os.Remove("x.out")
+	defer f.Close()
+	m, err = ReadMovieNfo(f)
+	if err == nil {
+		t.Error("Accepted nil as reader")
+		t.Fail()
+	}
+	// test with wrong file format
+	f, err = os.Open(episodeNfoFile)
+	if err != nil {
+		t.Fatalf("Could not open file '%s': %v\n", episodeNfoFile, err)
+	}
+	m, err = ReadMovieNfo(f)
+	if err == nil {
+		t.Error("Accepted episode as movie", err)
+		t.Fail()
+	}
 }
