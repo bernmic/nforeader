@@ -13,7 +13,7 @@ pipeline {
         }
         stage("test") {
             steps {
-                echo 'test app'
+                sh 'go test'
             }
         }
         stage("deploy") {
