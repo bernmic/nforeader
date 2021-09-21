@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
+    tools {
+        go 'go-1.17'
+    }
+
     stages {
         stage("build") {
             steps {
-                echo 'build app'
+                sh 'go build'
             }
         }
         stage("test") {
