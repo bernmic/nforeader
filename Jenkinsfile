@@ -21,5 +21,10 @@ pipeline {
                 echo 'deploy app'
             }
         }
+        stage("goodnight") {
+            step {
+                echo 'say goodnight'
+            }
+        }
     }
 }
