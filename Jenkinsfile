@@ -22,7 +22,7 @@ pipeline {
             }
         }
         stage("goodnight") {
-            step {
+            steps {
                 echo 'say goodnight'
             }
         }
