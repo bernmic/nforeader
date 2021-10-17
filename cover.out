@@ -1,0 +1,16 @@
+mode: set
+github.com/bernmic/nfoparser/episode.go:57.52,59.16 2 1
+github.com/bernmic/nfoparser/episode.go:62.2,64.16 3 1
+github.com/bernmic/nfoparser/episode.go:67.2,67.16 1 1
+github.com/bernmic/nfoparser/episode.go:59.16,61.3 1 1
+github.com/bernmic/nfoparser/episode.go:64.16,66.3 1 1
+github.com/bernmic/nfoparser/movie.go:114.48,116.16 2 1
+github.com/bernmic/nfoparser/movie.go:119.2,121.16 3 1
+github.com/bernmic/nfoparser/movie.go:124.2,124.16 1 1
+github.com/bernmic/nfoparser/movie.go:116.16,118.3 1 1
+github.com/bernmic/nfoparser/movie.go:121.16,123.3 1 1
+github.com/bernmic/nfoparser/tvshow.go:54.50,56.16 2 1
+github.com/bernmic/nfoparser/tvshow.go:59.2,61.16 3 1
+github.com/bernmic/nfoparser/tvshow.go:64.2,64.16 1 1
+github.com/bernmic/nfoparser/tvshow.go:56.16,58.3 1 1
+github.com/bernmic/nfoparser/tvshow.go:61.16,63.3 1 1
