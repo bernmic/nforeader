@@ -1,0 +1,35 @@
+name: Build pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building branch ${{github.ref}} triggered by ${{github.event_name}}"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.17'
+      - name: Install dependencies
+        run: |
+          go version
+          go install golang.org/x/lint/golint
+      - name: Build
+        run: go build -v ./...
+      - name: Lint
+        run: |
+          go vet .
+          golint
+      - name: Test
+        run: go test -v ./...
