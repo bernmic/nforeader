@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/bernmic/nfoparser"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/bernmic/nfoparser"
 )
 
 func printUsage() {
@@ -29,6 +30,7 @@ func main() {
 		if s.IsDir() {
 			_, err := readAllMovies(args[1])
 			if err != nil {
+				fmt.Println(err.Error())
 				os.Exit(1)
 			}
 			return
@@ -36,6 +38,8 @@ func main() {
 		m, err := readMovieNfo(args[1])
 		if err == nil {
 			fmt.Printf("Successfully read movie %s\n", m.Title)
+		} else {
+			fmt.Println(err.Error())
 		}
 		return
 	}
@@ -49,6 +53,7 @@ func main() {
 		if s.IsDir() {
 			_, err := readAllTVShows(args[1])
 			if err != nil {
+				fmt.Println(err.Error())
 				os.Exit(1)
 			}
 			return
@@ -56,6 +61,8 @@ func main() {
 		m, err := readTVShowNfo(args[1])
 		if err == nil {
 			fmt.Printf("Successfully read tvshow %s\n", m.Title)
+		} else {
+			fmt.Println(err.Error())
 		}
 		return
 	}
@@ -69,6 +76,7 @@ func main() {
 		if s.IsDir() {
 			_, err := readAllEpisodes(args[1])
 			if err != nil {
+				fmt.Println(err.Error())
 				os.Exit(1)
 			}
 			return
@@ -76,6 +84,8 @@ func main() {
 		m, err := readEpisodeNfo(args[1])
 		if err == nil {
 			fmt.Printf("Successfully read episode %s - S%02dE%02d - %s\n", m.ShowTitle, m.Season, m.Episode, m.Title)
+		} else {
+			fmt.Println(err.Error())
 		}
 		return
 	}
@@ -87,13 +97,11 @@ func readMovieNfo(filename string) (*nfoparser.Movie, error) {
 	f, err := os.Open(filename)
 	defer f.Close()
 	if err != nil {
-		fmt.Printf("Error opening %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error opening %s: %v\n", filename, err)
 	}
 	m, err := nfoparser.ReadMovieNfo(f)
 	if err != nil {
-		fmt.Printf("Error reading %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error reading %s: %v\n", filename, err)
 	}
 	return m, nil
 }
@@ -111,8 +119,7 @@ func readAllMovies(dirname string) ([]*nfoparser.Movie, error) {
 		return nil
 	})
 	if err != nil {
-		fmt.Printf("Error scanning dir %s: %v\n", dirname, err)
-		return nil, err
+		return nil, fmt.Errorf("Error scanning dir %s: %v\n", dirname, err)
 	}
 	return movies, nil
 }
@@ -121,13 +128,11 @@ func readTVShowNfo(filename string) (*nfoparser.TVShow, error) {
 	f, err := os.Open(filename)
 	defer f.Close()
 	if err != nil {
-		fmt.Printf("Error opening %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error opening %s: %v\n", filename, err)
 	}
 	m, err := nfoparser.ReadTVShowNfo(f)
 	if err != nil {
-		fmt.Printf("Error reading %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error reading %s: %v\n", filename, err)
 	}
 	return m, nil
 }
@@ -145,8 +150,7 @@ func readAllTVShows(dirname string) ([]*nfoparser.TVShow, error) {
 		return nil
 	})
 	if err != nil {
-		fmt.Printf("Error scanning dir %s: %v\n", dirname, err)
-		return nil, err
+		return nil, fmt.Errorf("Error scanning dir %s: %v\n", dirname, err)
 	}
 	return tvShows, nil
 }
@@ -155,13 +159,11 @@ func readEpisodeNfo(filename string) (*nfoparser.Episode, error) {
 	f, err := os.Open(filename)
 	defer f.Close()
 	if err != nil {
-		fmt.Printf("Error opening %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error opening %s: %v\n", filename, err)
 	}
 	m, err := nfoparser.ReadEpisodeNfo(f)
 	if err != nil {
-		fmt.Printf("Error reading %s: %v\n", filename, err)
-		return nil, err
+		return nil, fmt.Errorf("Error reading %s: %v\n", filename, err)
 	}
 	return m, nil
 }
@@ -179,8 +181,7 @@ func readAllEpisodes(dirname string) ([]*nfoparser.Episode, error) {
 		return nil
 	})
 	if err != nil {
-		fmt.Printf("Error scanning dir %s: %v\n", dirname, err)
-		return nil, err
+		return nil, fmt.Errorf("Error scanning dir %s: %v\n", dirname, err)
 	}
 	return tvShows, nil
 }
