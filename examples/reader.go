@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/bernmic/nfoparser"
+	nfoparser "github.com/bernmic/nforeader"
 )
 
 func printUsage() {
