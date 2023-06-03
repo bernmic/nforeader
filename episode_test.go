@@ -77,7 +77,7 @@ func TestEpisodeMarshal(t *testing.T) {
 
 	episode.FileInfo.StreamDetails.Video = append(episode.FileInfo.StreamDetails.Video, StreamVideo{
 		Codec:             "hevc",
-		Aspect:            1.85,
+		Aspect:            "1.85",
 		Width:             1920,
 		Height:            1080,
 		DurationInSeconds: 1230,

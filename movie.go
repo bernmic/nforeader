@@ -86,12 +86,12 @@ type UniqueId struct {
 }
 
 type StreamVideo struct {
-	Codec             string  `xml:"codec,omitempty"`
-	Aspect            float64 `xml:"aspect,omitempty"`
-	Width             int64   `xml:"width,omitempty"`
-	Height            int64   `xml:"height,omitempty"`
-	DurationInSeconds int64   `xml:"durationinseconds,omitempty"`
-	StereoMode        string  `xml:"stereomode,omitempty"`
+	Codec             string `xml:"codec,omitempty"`
+	Aspect            string `xml:"aspect,omitempty"`
+	Width             int64  `xml:"width,omitempty"`
+	Height            int64  `xml:"height,omitempty"`
+	DurationInSeconds int64  `xml:"durationinseconds,omitempty"`
+	StereoMode        string `xml:"stereomode,omitempty"`
 }
 
 type StreamAudio struct {
