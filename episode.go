@@ -3,7 +3,6 @@ package nfoparser
 import (
 	"encoding/xml"
 	"io"
-	"io/ioutil"
 )
 
 type Episode struct {
@@ -55,7 +54,7 @@ type Episode struct {
 }
 
 func ReadEpisodeNfo(r io.Reader) (*Episode, error) {
-	b, err := ioutil.ReadAll(r)
+	b, err := io.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}
