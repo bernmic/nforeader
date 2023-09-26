@@ -3,7 +3,6 @@ package nfoparser
 import (
 	"encoding/xml"
 	"io"
-	"io/ioutil"
 )
 
 type Movie struct {
@@ -112,7 +111,7 @@ type Actor struct {
 }
 
 func ReadMovieNfo(r io.Reader) (*Movie, error) {
-	b, err := ioutil.ReadAll(r)
+	b, err := io.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}

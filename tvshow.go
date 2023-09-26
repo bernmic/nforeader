@@ -3,7 +3,6 @@ package nfoparser
 import (
 	"encoding/xml"
 	"io"
-	"io/ioutil"
 )
 
 type TVShow struct {
@@ -50,9 +49,8 @@ type TVShow struct {
 	DateAdded string `xml:"dateadded,omitempty"`
 }
 
-
 func ReadTVShowNfo(r io.Reader) (*TVShow, error) {
-	b, err := ioutil.ReadAll(r)
+	b, err := io.ReadAll(r)
 	if err != nil {
 		return nil, err
 	}
