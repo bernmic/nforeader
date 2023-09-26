@@ -8,3 +8,4 @@ Example nfo files are taken from there for the tests.
 ## Todo
 
 - Music video parser
+- Tests for album and artist
