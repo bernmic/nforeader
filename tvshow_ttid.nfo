@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tvshow>
+    <title>Space Janitors</title>
+    <showtitle></showtitle>
+    <uniqueid default="true" type="imdb">tt2266399</uniqueid>
+    <uniqueid type="tvdb">264109</uniqueid>
+    <id>tt2266399</id>
+    <ratings>
+        <rating name="tvdb" default="true" max="10">
+            <value>7.5</value>
+            <votes>54</votes>
+        </rating>
+    </ratings>
+    <userrating>0</userrating>
+    <top250>0</top250>
+    <episode>24</episode>
+    <season>3</season>
+    <plot>Two janitors, Mike Chet and Darby Richards, serve aboard an iconic space station buffing out blaster burns and mopping up hero guts.</plot>
+    <mpaa></mpaa>
+    <premiered>2012-11-09</premiered>
+    <dateadded></dateadded>
+    <status>Ended</status>
+    <studio>YouTube</studio>
+    <runtime>4</runtime>
+    <trailer></trailer>
+    <episodeguide>{&quot;imdb&quot;:&quot;tt2266399&quot;,&quot;tvdb&quot;:&quot;264109&quot;}</episodeguide>
+    <genre>Comedy</genre>
+    <genre>Science Fiction</genre>
+    <actor>
+        <name>Brendan Halloran</name>
+        <role>Darby Richards</role>
+        <order>0</order>
+    </actor>
+    <actor>
+        <name>Pat Thornton</name>
+        <role>Mike Chet</role>
+        <order>1</order>
+    </actor>
+    <actor>
+        <name>Scott Yamamura</name>
+        <role>Dennis 4862</role>
+        <order>3</order>
+    </actor>
+    <actor>
+        <name>Tess Degenstein</name>
+        <role>LN6-K</role>
+        <order>4</order>
+    </actor>
+    <actor>
+        <name>Evany Rosen</name>
+        <role>Edith Kingpin</role>
+        <order>5</order>
+    </actor>
+    <generator>
+        <appname>MediaElch</appname>
+        <appversion>2.10.6</appversion>
+        <kodiversion>20</kodiversion>
+        <datetime>2024-03-28T23:47:23Z</datetime>
+    </generator>
+</tvshow>

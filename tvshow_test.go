@@ -8,7 +8,8 @@ import (
 )
 
 const (
-	tvshowNfoFile = "tvshow.nfo"
+	tvshowNfoFile     = "tvshow.nfo"
+	tvshowNfoFileTTID = "tvshow_ttid.nfo"
 )
 
 func TestTVShowMarshal(t *testing.T) {
@@ -29,7 +30,7 @@ func TestTVShowMarshal(t *testing.T) {
 		MPAA:           "23",
 		Playcount:      1,
 		Lastplayed:     "",
-		Id:             123,
+		Id:             "123",
 		Premiered:      "",
 		Year:           "2021",
 		Status:         "",
@@ -122,6 +123,26 @@ func TestTVShowUnmarshal(t *testing.T) {
 		t.Fail()
 	}
 	t.Logf("Title: %s\n", m.Title)
+}
+
+// Some IDs are not numbers
+func TestTVShowUnmarshalTextID(t *testing.T) {
+	b, err := ioutil.ReadFile(tvshowNfoFileTTID)
+	if err != nil {
+		t.Fatalf("Could not read file '%s': %v\n", tvshowNfoFile, err)
+	}
+
+	m := TVShow{}
+	err = xml.Unmarshal(b, &m)
+	if err != nil {
+		t.Logf("Error unmarshalling tvshow: %v\n", err)
+		t.Fail()
+	}
+	t.Logf("Title: %s\n", m.Title)
+
+	if m.Id != "tt2266399" {
+		t.Errorf("expected 'tt2266399' got '%s'", m.Id)
+	}
 }
 
 func TestTVShowNfoReader(t *testing.T) {
