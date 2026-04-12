@@ -28,7 +28,7 @@ type TVShow struct {
 	MPAA           string     `xml:"mpaa,omitempty"`
 	Playcount      int64      `xml:"playcount,omitempty"`
 	Lastplayed     string     `xml:"lastplayed,omitempty"`
-	Id             int64      `xml:"id,omitempty"`
+	Id             string     `xml:"id,omitempty"`
 	Uniqueid       []UniqueId `xml:"uniqueid,omitempty"`
 	Genre          []string   `xml:"genre,omitempty"`
 	Premiered      string     `xml:"premiered,omitempty"`
